@@ -21,5 +21,16 @@
     1. Create script setup-master.sh
     2. Create script setup-slave.sh
 
+### MySQL Router
+    - Tìm hiểu mysql router dùng cho InnoDB Cluster
+      https://dev.mysql.com/doc/mysql-router/8.0/en/mysql-router-general-using-developing.html
+
+    - Chi tiết:
+      https://dev.mysql.com/doc/mysql-router/8.0/en/
+
+### Doc
+    https://dev.mysql.com/doc/mysql-shell/8.0/en/mysql-innodb-cluster.html
+    
+
 
 

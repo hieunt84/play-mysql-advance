@@ -1,0 +1,2 @@
+### commands
+    service mysql start

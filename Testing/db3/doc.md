@@ -1,0 +1,6 @@
+### Commands
+    #start
+    ndbd
+    
+    #stop
+    ???

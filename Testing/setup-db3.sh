@@ -82,9 +82,11 @@ cat >> "/etc/my.cnf" <<EOF
 [mysqld]
 ndbcluster
 ndb-connectstring=172.20.10.225     # IP address of Management Node
+ndb-connectstring=172.20.10.230     # IP address of Management Node
  
 [mysql_cluster]
 ndb-connectstring=172.20.10.225     # IP address of Management Node
+ndb-connectstring=172.20.10.230     # IP address of Management Node
 EOF
 
 # Step 2: Then create the new directory for the database data that
@@ -94,7 +96,7 @@ mkdir -p /var/lib/mysql-cluster
 # Step 3: Now start the data node/ndbd:
 ndbd
 
-# Step 4 : Data Node db2 connected to the management node ip 172.20.10.225 
+# Step 4 : Data Node db3 connected to the management node ip 172.20.10.225 
 
 #########################################################################################
 # SECTION 4: FINISHED

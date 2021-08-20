@@ -49,6 +49,7 @@ yum install wget -y
 
 # download mysql-cluster-community
 cd ~
+echo "Downloading mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar"
 wget -q http://172.20.10.2/mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar
 tar -xvf mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar
 

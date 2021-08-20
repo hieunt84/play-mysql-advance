@@ -2,6 +2,8 @@
     https://viblo.asia/p/huong-dan-cai-dat-va-cau-hinh-co-ban-mysql-replication-JQVkVQgNeyd
     https://viblo.asia/p/lam-the-nao-de-setup-master-slave-replication-in-mysql-RnB5pyXdKPG
     https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql
+    https://www.youtube.com/watch?v=Rf2O9ix2tks
+    
     
 ### Mục đích triển khai nhân rộng (replication)
     - sao lưu (backup)

@@ -33,7 +33,6 @@ systemctl disable firewalld
 # 172.20.10.227 db3
 # 172.20.10.228 db4
 # 172.20.10.229 db5
-# 172.20.10.229 db6
 # EOL
 
 # config network, config in vagrantfile in test evironment
@@ -50,6 +49,7 @@ yum install wget -y
 
 # download mysql-cluster-community
 cd ~
+echo "Downloading mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar"
 wget -q http://172.20.10.2/mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar
 tar -xvf mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar
 
@@ -71,28 +71,58 @@ yum -y install mysql-cluster-community-libs-7.6.18-1.el7.x86_64.rpm
 yum -y install mysql-cluster-community-client-7.6.18-1.el7.x86_64.rpm
 #rpm -Uvh mysql-cluster-community-client-7.6.18-1.el7.x86_64.rpm
 
-yum -y install mysql-cluster-community-data-node-7.6.18-1.el7.x86_64.rpm
+yum -y install mysql-cluster-community-management-server-7.6.18-1.el7.x86_64.rpm
+#rpm -Uvh mysql-cluster-community-management-server-7.6.18-1.el7.x86_64.rpm
 
 #########################################################################################
 # SECTION 3: Configure MySQL Cluster
 
 # Step 1
-# Create a new configuration file in the /etc directory:
-cat >> "/etc/my.cnf" <<EOF 
-[mysql_cluster]
-# Options for NDB Cluster processes:
-ndb-connectstring=172.20.10.225     # IP address of Management Node
-ndb-connectstring=172.20.10.230     # IP address of Management Node
-EOF
-
-# Step 2: Then create the new directory for the database data that
-# we defined in the management node config file "config.ini".
+# Create a new directory for the configuration files. I will use the "/var/lib/mysql-cluster" directory.
 mkdir -p /var/lib/mysql-cluster
 
-# Step 3: Now start the data node/ndbd:
-ndbd
+# Step 2
+# Then create new configuration file for the cluster management named "config.ini" in the mysql-cluster directory.
+cat >> "/var/lib/mysql-cluster/config.ini" <<EOF
 
-# Step 4 : Data Node db2 connected to the management node ip 172.20.10.225 and ip 172.20.10.230
+[ndb_mgmd default]
+# Directory for MGM node log files
+DataDir=/var/lib/mysql-cluster
+ 
+[ndb_mgmd]
+#Management Node db1
+HostName=172.20.10.225
+
+[ndb_mgmd]
+#Management Node db6
+HostName=172.20.10.230
+ 
+[ndbd default]
+NoOfReplicas=2      # Number of replicas
+DataMemory=256M     # Memory allocate for data storage
+
+#Directory for Data Node
+DataDir=/var/lib/mysql-cluster
+ 
+[ndbd]
+#Data Node db2
+HostName=172.20.10.226
+ 
+[ndbd]
+#Data Node db3
+HostName=172.20.10.227
+ 
+[mysqld]
+#SQL Node db4
+HostName=172.20.10.228
+ 
+[mysqld]
+#SQL Node db5
+HostName=172.20.10.229
+EOF
+
+# Step 3: Start the Management Node
+ndb_mgmd --config-file=/var/lib/mysql-cluster/config.ini
 
 #########################################################################################
 # SECTION 4: FINISHED

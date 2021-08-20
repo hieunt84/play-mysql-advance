@@ -9,6 +9,9 @@
 
     https://dev.mysql.com/doc/refman/5.7/en/mysql-cluster-install-shutdown-restart.html
 
+    https://www.youtube.com/watch?v=64jtbkuPtvc
+    
+
 ### Download
     https://downloads.mysql.com/archives/cluster/
 

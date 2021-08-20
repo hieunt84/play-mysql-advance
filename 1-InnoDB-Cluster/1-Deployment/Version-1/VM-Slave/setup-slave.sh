@@ -72,4 +72,4 @@ EXITS;
 #########################################################################################
 # SECTION 4: FINISHED
 
-echo "FINISHED"
+echo "installation complete completely"

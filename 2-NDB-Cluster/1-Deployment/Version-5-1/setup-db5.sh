@@ -1,4 +1,5 @@
 #!/bin/bash
+# Instal SQL Node in NDB Cluster
 
 ##########################################################################################
 # SECTION 1: PREPARE
@@ -50,6 +51,7 @@ yum install wget -y
 
 # download mysql-cluster-community
 cd ~
+echo "Downloading mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar"
 wget -q http://172.20.10.2/mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar
 tar -xvf mysql-cluster-community-7.6.18-1.el7.x86_64.rpm-bundle.tar
 
@@ -91,6 +93,31 @@ EOF
 
 # Step 2: Start the SQL Node by starting the MySQL server
 systemctl start mysqld
+
+# Step 3: reset password
+cd ~
+# Get the temporary password
+temp_password=$(grep password /var/log/mysqld.log | awk '{print $NF}')
+
+# Set up a batch file with the SQL commands
+echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Abcqwe123@'; flush privileges;" > reset_pass.sql    
+
+# Log in to the server with the temporary password, and pass the SQL file to it.
+mysql -u root --password="$temp_password" --connect-expired-password < reset_pass.sql
+
+# Step 4: Config
+cd ~
+temp_password=$(echo "Abcqwe123@")
+
+cat >> "./config.sql" <<EOF
+CREATE USER 'root'@'%' IDENTIFIED BY 'Abcqwe123@';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+FLUSH PRIVILEGES;
+USE clustertest;
+SELECT * FROM test_table;
+EOF
+
+mysql -u root --password="$temp_password" --connect-expired-password < config.sql
 
 #########################################################################################
 # SECTION 4: FINISHED

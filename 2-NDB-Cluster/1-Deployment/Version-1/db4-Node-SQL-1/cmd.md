@@ -22,3 +22,18 @@
     msql>INSERT INTO test_table (name,value) VALUES('some_name','some_value');
 
     msql>SELECT * FROM test_table;
+
+### SHOW ENGINE NDB STATUS
+    Once inside the MySQL client, run the following command:
+        
+    SHOW ENGINE NDB STATUS \G
+     
+    You should now see information about the NDB cluster engine, beginning with connection parameters:
+    
+    Output
+    
+    *************************** 1. row ***************************
+      Type: ndbcluster
+      Name: connection
+    Status: cluster_node_id=4, connected_host=198.51.100.2, connected_port=1186,     number_of_data_nodes=2, number_of_ready_data_nodes=2, connect_count=0
+    . . .

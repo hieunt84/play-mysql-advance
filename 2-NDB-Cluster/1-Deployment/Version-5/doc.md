@@ -20,7 +20,7 @@
     mysql -u root -p
 
     msql>CREATE USER 'root'@'%' IDENTIFIED BY 'Abcxx';
-    select user, host, password from mysql.user;
+    mysql>select user, host, password from mysql.user;
 
     msql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY PASSWORD '*FE05E6547C26C426BE73C86246FEB4C9638679A1' WITH GRANT OPTION;
 

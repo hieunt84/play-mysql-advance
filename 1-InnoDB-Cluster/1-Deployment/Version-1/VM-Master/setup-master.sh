@@ -3,9 +3,11 @@
 ##########################################################################################
 # SECTION 1: PREPARE
 
-# update system
+# change root
 sudo -i
 sleep 2
+
+# update system
 yum clean all
 yum -y update
 sleep 1
@@ -72,4 +74,4 @@ EXITS;
 #########################################################################################
 # SECTION 4: FINISHED
 
-echo "installation docker complete completely"
+echo "installation complete completely"

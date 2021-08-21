@@ -83,6 +83,8 @@ Tham khảo cách [cấu hình](docs/2-replica-master-slave.md).
 
 <img src="http://image.prntscr.com/image/442577b161be4ec68008eedbfeb3f89d.png" />
 
+<a name="2.2"></a>
+
 ## 2.2 Giải pháp 3rd party
 
 <a name="2.2.1"></a>

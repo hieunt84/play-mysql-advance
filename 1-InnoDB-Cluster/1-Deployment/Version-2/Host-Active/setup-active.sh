@@ -1,5 +1,5 @@
 #!/bin/bash
-# Description: Set up MySQL Community Release 5.
+# Description: Set up MySQL Community Release 5.7.35
 
 ##########################################################################################
 # SECTION 1: PREPARE
@@ -75,7 +75,7 @@ temp_password=$(echo "Abcqwe123@")
 cd ~
 cat >> "./config-replica.sql" <<EOF
 CREATE DATABASE replication_database;
-CREATE USER 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Abc123!@#';
+CREATE USER 'replica_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Abcqwe123@';
 GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
 FLUSH PRIVILEGES;
 EOF

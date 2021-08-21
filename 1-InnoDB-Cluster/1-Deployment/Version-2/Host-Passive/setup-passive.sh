@@ -1,5 +1,5 @@
 #!/bin/bash
-# Description: Set up MySQL Community Release 5.
+# Description: Set up MySQL Community Release 5.7.35
 
 ##########################################################################################
 # SECTION 1: PREPARE
@@ -71,17 +71,21 @@ systemctl restart mysqld
 # Set password for config
 temp_password=$(echo "Abcqwe123@")
 
-# Step 2
+# Step 2 : cấu hình để nhân bản (replication)
 cd ~
 cat >> "./config-replica.sql" <<EOF
 CREATE DATABASE replication_database;
-CHANGE MASTER TO MASTER_HOST='172.20.10.117',MASTER_USER='replica_user', MASTER_PASSWORD='Abc123!@#', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS= 970;
+CHANGE MASTER TO MASTER_HOST='172.20.10.117',
+  MASTER_USER='replica_user',
+  MASTER_PASSWORD='Abcqwe123@',
+  MASTER_LOG_FILE='mysql-bin.000001',
+  MASTER_LOG_POS= 970;
 START SLAVE;
 EOF
 
 mysql -u root --password="$temp_password" --connect-expired-password < config-replica.sql
 
-# Step 3 : Verify
+# Step 3 : Kiểm tra kết quả (verify)
 cd ~
 cat >> "./verify.sql" <<EOF
 SHOW SLAVE STATUS\G;

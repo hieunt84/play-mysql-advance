@@ -28,6 +28,8 @@ Ngày nay, công nghệ thông tin đã ăn sâu vào nhiều lĩnh vực trong 
 - Nâng cao được tính an toàn dữ liệu
 - Đảm bảo hệ thống làm việc không bị gián đoạn
 
+<a name="2"></a>
+
 ## 2. Các giải pháp
 
 Có 2 giải pháp chính cho việc HA:

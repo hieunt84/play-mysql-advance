@@ -15,6 +15,17 @@
 	- [2.2.6 Percona cluster  ](#2.2.6)	
 - [3. Kết luận ](#3)
 
+## 1. Giới thiệu về HA
+
+Ngày nay, công nghệ thông tin đã ăn sâu vào nhiều lĩnh vực trong đời sống phục vụ cho sản xuất, giải trí và đặc biệt nhu cầu thông tin. Các hệ thống này luôn được đầu tư với quy mô càng ngày càng mở rộng, là hướng phát triển trọng tâm của doanh nghiệp cung cấp nội dung. Để đảm bảo các dịch vụ chạy thông suốt, phục vụ tối đa đến nhu cầu của người sử dụng và nâng cao tính bảo mật, an toàn dữ liệu; giải pháp High Availability được nghiên cứu và phát triển bởi nhiều hãng công nghệ lớn. Với Database, tính an toàn và khả dụng được đặt lên hàng đầu. Vì vậy, ở bài viết này, chúng tôi xin phép điểm qua một vài Giải pháp HA cho hệ cơ sở dữ liệu sử dụng MySQL hoặc MariaDB đang được cộng đồng tin dùng.
+
+### HA giải quyết được gì?
+
+- Tăng tính hoạt động sẵn sàng dữ liệu mọi lúc mọi nơi
+- Nâng cao hiệu suất làm việc của hệ thống
+- Nâng cao được tính an toàn dữ liệu
+- Đảm bảo hệ thống làm việc không bị gián đoạn
+
 
 ## Ref rất hay
    https://github.com/hieunt84/ghichep-database/blob/master/docs/2-replica-master-slave.md      

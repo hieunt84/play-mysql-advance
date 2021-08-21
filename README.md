@@ -35,8 +35,8 @@ Ngày nay, công nghệ thông tin đã ăn sâu vào nhiều lĩnh vực trong 
 Có 2 giải pháp chính cho việc HA:
 
 - Giải pháp Native: Giải pháp này được mysql/mariadb hỗ trợ.
-	- Master - Slave
-	- Master - Master
+	- Master - Slave (ví dụ: InnoDB - miễn phí)
+	- Master - Master (ví dụ: NDB Clustering - trả phí)
 
 - Giải pháp 3rd party: Cùng với mục đích là để nhất quán dữ liệu với các server với nhau nhưng cơ chế hoạt động và mô hình khác với giải pháp Native. Một số kỹ thuật mà chúng tôi đã tìm hiểu là:
 	- Galera

@@ -104,10 +104,9 @@ Hướng dẫn cài đặt trên:
 - [CentOS](https://github.com/hoangdh/ghichep-database/tree/master/Galera_on_CentOS)
 
 
-
 ---
-
-## Ref rất hay
+## Tài liệu tự viết
+### Ref rất hay
    https://github.com/hieunt84/ghichep-database/blob/master/docs/2-replica-master-slave.md      
 
 ### mysql hỗ trợ hai dạng cluster

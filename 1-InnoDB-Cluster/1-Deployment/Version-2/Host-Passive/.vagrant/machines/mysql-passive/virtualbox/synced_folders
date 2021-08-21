@@ -1,1 +1,0 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"C:/Projects/play-mysql-advance/1-InnoDB-Cluster/1-Deployment/Version-2/Host-Passive","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
